@@ -120,8 +120,10 @@ Status drives public visibility.
 no secret is exposed under a `NEXT_PUBLIC_` name, and `passwordHash` never leaves
 the service layer.
 
-**Session cookie.** httpOnly, sameSite=lax, secure in production, with an
-explicit expiry that the server validates on every admin request.
+**Session cookie.** httpOnly, sameSite=lax, secure in production, with a 24-hour
+lifetime that the server validates on every admin request. A short lifetime suits
+an admin panel with a single operator: re-authenticating daily is a negligible
+cost, and it bounds the window in which a leaked cookie is useful.
 
 **Responsive.** Mobile-first Tailwind. The admin list collapses from a table to
 cards on narrow screens; the editor is single-column throughout.
