@@ -3084,7 +3084,7 @@ git commit -m "Add Playwright end-to-end suites for auth, editing and visibility
 - Consumes: the finished application
 - Produces: the two required documents
 
-- [ ] **Step 1: Run every check and record the real output**
+- [x] **Step 1: Run every check and record the real output**
 
 ```bash
 npm run lint
@@ -3097,11 +3097,11 @@ npm run build
 
 Copy the actual pass/fail counts — the README must report real results, not aspirational ones.
 
-- [ ] **Step 2: Write `README.md`**
+- [x] **Step 2: Write `README.md`**
 
 It must cover, in Ukrainian or English consistently: prerequisites (Node 22+, PostgreSQL 18); the two `CREATE DATABASE` commands and the role creation; copying `.env.example` to `.env`; `npm install`; `npm run db:generate`; `npm run db:migrate`; `npm run db:seed`; `npm run db:test:deploy`; `npm run dev`; the admin URL and the seeded credentials; `npm test` and `npm run test:e2e`; the technical decisions and why (framework, session-over-JWT, two databases, argon2id, token hashing, 404-not-403); the testing strategy and why two levels; the actual verification results from Step 1; known limitations; and the real time spent.
 
-- [ ] **Step 3: Write `AI-WORKLOG.md`**
+- [x] **Step 3: Write `AI-WORKLOG.md`**
 
 It must contain the tools and models used and their concrete contribution versus your own; **2–3 specific decisions** about AI-generated code, each naming what was proposed, what you chose, why, and how it was verified, with a link to the relevant commit; and an assessment of the role the automated tests played in checking AI output, including how you judged the quality of AI-written tests. Candidate examples worth writing up: storing the SHA-256 of the session token rather than the token; returning 404 rather than 403 for drafts; keeping form state on a failed save; pinning `prisma` to 7.10.0 because the `latest` tag is a release candidate.
 
