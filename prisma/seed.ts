@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { fileURLToPath } from "node:url";
 import { hash } from "@node-rs/argon2";
 import { prisma } from "../src/lib/db";
 
@@ -101,9 +102,16 @@ async function main() {
   console.log(`Seeded ${users} user(s) and ${products} product(s).`);
 }
 
-main()
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  })
-  .finally(() => prisma.$disconnect());
+// Only run as a script (`prisma db seed`, `tsx prisma/seed.ts`). Other modules import
+// `seedDatabase` directly (e.g. the Vitest harness), and must not trigger this as a
+// side effect of that import.
+const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+
+if (isMainModule) {
+  main()
+    .catch((error) => {
+      console.error(error);
+      process.exit(1);
+    })
+    .finally(() => prisma.$disconnect());
+}

@@ -14,7 +14,9 @@
     "db:deploy": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "db:reset": "prisma migrate reset --force",
-    "db:test:deploy": "node scripts/with-test-db.mjs prisma migrate deploy"
+    "db:test:deploy": "node scripts/with-test-db.mjs prisma migrate deploy",
+    "test": "node scripts/with-test-db.mjs vitest run",
+    "test:watch": "node scripts/with-test-db.mjs vitest"
   },
   "dependencies": {
     "@node-rs/argon2": "2.2.1",
@@ -39,6 +41,8 @@
     "prisma": "7.10.0",
     "tailwindcss": "4.3.3",
     "tsx": "4.23.13",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "5.0.1"
   }
 }
