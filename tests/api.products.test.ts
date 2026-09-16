@@ -20,9 +20,7 @@ vi.mock("next/headers", () => ({
 const { prisma } = await import("@/lib/db");
 const { POST: login } = await import("@/app/api/auth/login/route");
 const { GET: adminList } = await import("@/app/api/admin/products/route");
-const { GET: adminGet, PATCH: adminPatch } = await import(
-  "@/app/api/admin/products/[id]/route"
-);
+const { GET: adminGet, PATCH: adminPatch } = await import("@/app/api/admin/products/[id]/route");
 const { GET: publicList } = await import("@/app/api/products/route");
 const { GET: publicGet } = await import("@/app/api/products/[slug]/route");
 const { resetAndSeed } = await import("./helpers/db");

@@ -12,9 +12,7 @@ const STYLES: Record<ProductStatusValue, string> = {
 
 export function StatusBadge({ status }: { status: ProductStatusValue }) {
   return (
-    <span
-      className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${STYLES[status]}`}
-    >
+    <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${STYLES[status]}`}>
       {LABELS[status]}
     </span>
   );

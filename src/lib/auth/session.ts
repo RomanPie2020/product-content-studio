@@ -19,7 +19,9 @@ export async function createSession(userId: string): Promise<{ token: string; ex
   return { token, expiresAt };
 }
 
-export async function validateSession(token: string): Promise<{ id: string; email: string } | null> {
+export async function validateSession(
+  token: string,
+): Promise<{ id: string; email: string } | null> {
   const id = hashToken(token);
   const session = await prisma.session.findUnique({
     where: { id },

@@ -1,12 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/db";
 import { hashPassword, verifyPassword } from "@/lib/auth/password";
-import {
-  SESSION_TTL_MS,
-  createSession,
-  revokeSession,
-  validateSession,
-} from "@/lib/auth/session";
+import { SESSION_TTL_MS, createSession, revokeSession, validateSession } from "@/lib/auth/session";
 import { resetAndSeed } from "./helpers/db";
 
 describe("password hashing", () => {

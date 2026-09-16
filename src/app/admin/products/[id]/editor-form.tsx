@@ -162,9 +162,7 @@ export function EditorForm({ product }: { product: ProductDetail }) {
           {pending ? "Зберігаємо…" : "Зберегти"}
         </button>
 
-        {isDirty ? (
-          <span className="text-sm text-amber-700">Є незбережені зміни</span>
-        ) : null}
+        {isDirty ? <span className="text-sm text-amber-700">Є незбережені зміни</span> : null}
       </div>
     </form>
   );

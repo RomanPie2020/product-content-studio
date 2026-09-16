@@ -35,9 +35,7 @@ export default async function EditorPage({ params }: { params: Promise<{ id: str
         </Link>
 
         <h1 className="mt-4 mb-2 text-2xl font-semibold">{product.name}</h1>
-        <p className="mb-6 text-sm text-gray-600">
-          Назву та характеристики змінювати не можна.
-        </p>
+        <p className="mb-6 text-sm text-gray-600">Назву та характеристики змінювати не можна.</p>
 
         <section className="mb-8">
           <h2 className="mb-3 text-lg font-medium">Характеристики</h2>
