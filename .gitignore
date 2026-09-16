@@ -42,3 +42,6 @@ Thumbs.db
 # misc
 *.tsbuildinfo
 .vercel
+
+# prisma generated client
+src/generated/
