@@ -2817,14 +2817,14 @@ git commit -m "Add product editor with explicit save and error preservation"
 - Consumes: the running application and the test database
 - Produces: `npm run test:e2e`
 
-- [ ] **Step 1: Install Playwright**
+- [x] **Step 1: Install Playwright**
 
 ```bash
 npm install --save-exact --save-dev @playwright/test@1.63.0
 npx playwright install chromium
 ```
 
-- [ ] **Step 2: Create `e2e/global-setup.ts`**
+- [x] **Step 2: Create `e2e/global-setup.ts`**
 
 ```ts
 import { resetAndSeed } from "../tests/helpers/db";
@@ -2834,7 +2834,7 @@ export default async function globalSetup(): Promise<void> {
 }
 ```
 
-- [ ] **Step 3: Create `playwright.config.ts`**
+- [x] **Step 3: Create `playwright.config.ts`**
 
 The suite runs against a production build, which is what a reviewer would run. `DATABASE_URL` is already swapped to the test database by `scripts/with-test-db.mjs`, and `webServer` inherits it.
 
@@ -2868,13 +2868,13 @@ export default defineConfig({
 
 The two projects also satisfy the responsive requirement by running every journey at phone width.
 
-- [ ] **Step 4: Add the script to `package.json`**
+- [x] **Step 4: Add the script to `package.json`**
 
 ```json
 "test:e2e": "node scripts/with-test-db.mjs playwright test"
 ```
 
-- [ ] **Step 5: Write `e2e/auth.spec.ts`**
+- [x] **Step 5: Write `e2e/auth.spec.ts`**
 
 ```ts
 import { expect, test } from "@playwright/test";
@@ -2916,7 +2916,7 @@ test("admin API is unreachable without a session", async ({ request }) => {
 });
 ```
 
-- [ ] **Step 6: Write `e2e/editor.spec.ts`**
+- [x] **Step 6: Write `e2e/editor.spec.ts`**
 
 ```ts
 import { expect, test, type Page } from "@playwright/test";
@@ -2977,7 +2977,7 @@ test("the save button stays disabled until something changes", async ({ page }) 
 });
 ```
 
-- [ ] **Step 7: Write `e2e/visibility.spec.ts`**
+- [x] **Step 7: Write `e2e/visibility.spec.ts`**
 
 ```ts
 import { expect, test, type Page } from "@playwright/test";
@@ -3058,7 +3058,7 @@ This test earns its place by actually attempting the injection through the real 
 
 The visibility suite mutates published state, so it must run after the others; `fullyParallel: false` with `workers: 1` and alphabetical file ordering (`auth`, `editor`, `visibility`) guarantees that.
 
-- [ ] **Step 8: Run the end-to-end suite**
+- [x] **Step 8: Run the end-to-end suite**
 
 ```bash
 npm run test:e2e
@@ -3066,7 +3066,7 @@ npm run test:e2e
 
 Expected: all tests pass in both the `desktop` and `mobile` projects. Re-run `npm run db:seed` afterwards if you want the development database repopulated — it is untouched, but the test database is now in a mutated state, which `globalSetup` resets on the next run.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add -A
