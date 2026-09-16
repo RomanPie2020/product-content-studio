@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { fileURLToPath } from "node:url";
-import { hash } from "@node-rs/argon2";
+import { hashPassword } from "../src/lib/auth/password";
 import { prisma } from "../src/lib/db";
 
 type SeedSpec = { label: string; value: string };
@@ -77,7 +77,7 @@ export async function seedDatabase(): Promise<void> {
     throw new Error("SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD must be set");
   }
 
-  const passwordHash = await hash(password);
+  const passwordHash = await hashPassword(password);
 
   await prisma.user.upsert({
     where: { email },
